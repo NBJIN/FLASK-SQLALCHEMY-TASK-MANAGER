@@ -10,14 +10,14 @@ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 if os.environ.get("DEVELOPMENT") == "True":
      app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
- else:
+else:
      uri = os.environ.get("DATABASE_URL")
-     if uri.startswith("postgres://"):
-         uri = uri.replace("postgres://", "postgresql://", 1)
+    if uri.startswith("postgres://"):
+     uri = uri.replace("postgres://", "postgresql://", 1)
      app.config["SQLALCHEMY_DATABASE_URI"] = uri
 
 
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
+# app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
 
 db = SQLAlchemy(app)
 
